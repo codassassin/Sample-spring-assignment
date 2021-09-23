@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
 @RestController
@@ -36,8 +37,9 @@ public class UserController {
     }
 
     // build get user REST API
+//    @RolesAllowed("OPERATOR")
+    @PreAuthorize("hasRole('OPERATOR')")
     @GetMapping
-    @PreAuthorize("hasAnyRole('OPERATOR')")
     public List<User> getAllEmployees() {
         return userservice.getAllEmployees();
     }
