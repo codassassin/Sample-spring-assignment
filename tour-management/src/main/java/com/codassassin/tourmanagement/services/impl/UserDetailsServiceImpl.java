@@ -1,5 +1,6 @@
 package com.codassassin.tourmanagement.services.impl;
 
+
 import com.codassassin.tourmanagement.auth.ApplicationUser;
 import com.codassassin.tourmanagement.model.User;
 import com.codassassin.tourmanagement.repository.UserRepository;

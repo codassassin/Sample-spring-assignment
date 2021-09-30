@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/register-user")
 public class UserManagementController {
+
     private UserManagementService userManagementService;
 
     public UserManagementController(UserManagementService userManagementService) {

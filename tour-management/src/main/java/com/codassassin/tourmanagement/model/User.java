@@ -4,10 +4,11 @@ package com.codassassin.tourmanagement.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Entity
-@Table(name="tour_operator")
+@Table(name="user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,14 +23,17 @@ public class User {
     @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "user_type", nullable = false)
-    private String userType;
+    @Column(name = "user_role", nullable = false)
+    private String userRole;
 
     @Column(name = "user_name", nullable = false)
     private String username;
 
     @Column(name = "password", nullable = false)
     private String password;
+
+//    @OneToMany(mappedBy="tour_operator")
+//    private Set<Bookings> booking;
 
     public long getId() {
         return id;
@@ -64,11 +68,11 @@ public class User {
     }
 
     public String getUserType() {
-        return userType;
+        return userRole;
     }
 
     public void setUserType(String userType) {
-        this.userType = userType;
+        this.userRole = userType;
     }
 
     public String getUsername() {
@@ -85,5 +89,10 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return " " + id;
     }
 }
